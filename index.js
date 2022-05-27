@@ -46,13 +46,13 @@ function renderOnedog(myDog) {
     `
     document.querySelector('.dog-list').appendChild(card)
 }
-function getDog() {
-    fetch('http://localhost:3000/posts')
-        .then(re => re.json())
-        .then(data => {
-            renderOnedog(data[data.length - 1])
-        })
-}
+// function getDog() {
+//     fetch('http://localhost:3000/posts')
+//         .then(re => re.json())
+//         .then(data => {
+//             renderOnedog(data[data.length - 1])
+//         })
+// }
 
 function handlesubmit(e) {
     e.preventDefault()
@@ -72,7 +72,7 @@ function handlesubmit(e) {
         body: JSON.stringify(dogObj)
     })
         .then(res => res.json())
-        .then(dogObj => getDog(dogObj))
+        .then(dogObj => renderOnedog(dogObj))
     // reset the liker
     liker.innerText = EMPTY_HEART
     liker.className = ''
